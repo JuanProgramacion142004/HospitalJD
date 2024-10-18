@@ -1,0 +1,27 @@
+***** Reporte *****
+Título: Reporte de Actividades del Hospital San José St. Bonaventure
+Fecha de creación: 2024-10-18T18:05:38.516382500
+*************************
+
+Información del hospital: 
+Nombre: Hospital San José St. Bonaventure
+Dirección: 2425 Samaritan Dr, San Jose, CA 95124, Estados Unidos
+Presupuesto: 989440.0
+Estado: ACTIVO
+
+Lista de empleados: 
+Carlos Ramírez - Tipo: EMPLEADO OPERATIVO - Salario: 1800.0
+María Gómez - Tipo: EMPLEADO SALUD - Salario: 8760.0
+
+Lista de pacientes: 
+Pedro López - Estado: Saludable
+Ana María - Estado: Crítico
+
+Lista de citas médicas: 
+Fecha: 2024-10-18 - Paciente: Pedro López - Médico: María Gómez
+Fecha: 2024-10-19 - Paciente: Ana María - Médico: María Gómez
+
+Inventario de medicamentos: 
+
+*************************
+Fin del reporte.

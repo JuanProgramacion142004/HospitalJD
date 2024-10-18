@@ -16,7 +16,7 @@ public class Paciente extends Persona {
     private String correoElectronico;
     private String telefono;
     private String estado; // Saludable o Crítico
-    private ArrayList<Enfermedad> enfermedades;
+    private List<Enfermedad> enfermedades;
     private List<Medicamento> medicinas;
 
     // CONSTRUCTOR
@@ -29,7 +29,7 @@ public class Paciente extends Persona {
         this.medicinas = new ArrayList<>();
     }
 
-    // METODOS DE ACCESO
+    // MÉTODOS DE ACCESO
     public String getCorreoElectronico() {
         return correoElectronico;
     }
@@ -54,11 +54,11 @@ public class Paciente extends Persona {
         this.estado = estado;
     }
 
-    public ArrayList<Enfermedad> getEnfermedades() {
+    public List<Enfermedad> getEnfermedades() {
         return enfermedades;
     }
 
-    public void setEnfermedades(ArrayList<Enfermedad> enfermedades) {
+    public void setEnfermedades(List<Enfermedad> enfermedades) {
         this.enfermedades = enfermedades;
     }
 
@@ -66,7 +66,11 @@ public class Paciente extends Persona {
         return medicinas;
     }
 
-    // METODOS
+    public void setMedicinas(List<Medicamento> medicinas) {
+        this.medicinas = medicinas;
+    }
+
+    // MÉTODOS
     public void curarEnfermedad(String nombreEnfermedad, Medicamento medicamento) 
             throws EnfermedadNoExisteException, MedicamentoRecetadoException {
         Enfermedad enfermedadCurada = null;
@@ -104,7 +108,14 @@ public class Paciente extends Persona {
         }
     }
 
-    // METODOS ABSTRACTOS
+    // Método para agregar enfermedad al paciente
+    public void agregarEnfermedad(Enfermedad enfermedad) {
+        enfermedades.add(enfermedad);
+        estado = "Crítico"; // Cambiar el estado a crítico si hay al menos una enfermedad
+        System.out.println("Enfermedad " + enfermedad.getNombre() + " agregada al paciente " + getNombre());
+    }
+
+    // MÉTODOS ABSTRACTOS
     @Override
     public String obtenerTipoPersona() {
         return "PACIENTE";

@@ -23,10 +23,12 @@ public class Hospital {
     private double metaVentasAnual;
     private Gerente gerente;
     private Localizacion localizacion;
-
+    private Inventario inventario; 
     private List<Empleado> empleados;
     private List<Paciente> pacientes;
     private List<CitaMedica> citas;
+    private List<Medicamento> medicamentos; 
+    
 
     // MÉTODOS DE ACCESO
     public String getNombre() {
@@ -109,7 +111,49 @@ public class Hospital {
         this.localizacion = localizacion;
     }
 
-    // CONSTRUCTOR
+    public Inventario getInventario() {
+        return inventario;
+    }
+
+    public void setInventario(Inventario inventario) {
+        this.inventario = inventario;
+    }
+
+    public List<Empleado> getEmpleados() {
+        return empleados;
+    }
+
+    public void setEmpleados(List<Empleado> empleados) {
+        this.empleados = empleados;
+    }
+
+    public List<Paciente> getPacientes() {
+        return pacientes;
+    }
+
+    public void setPacientes(List<Paciente> pacientes) {
+        this.pacientes = pacientes;
+    }
+
+    public List<CitaMedica> getCitas() {
+        return citas;
+    }
+
+    public void setCitas(List<CitaMedica> citas) {
+        this.citas = citas;
+    }
+
+    public List<Medicamento> getMedicamentos() {
+        return medicamentos;
+    }
+
+    public void setMedicamentos(List<Medicamento> medicamentos) {
+        this.medicamentos = medicamentos;
+    }
+    
+    
+
+    // METODOS
     public Hospital(String nombre, String direccion, String telefono, String logo, LocalDate fechaFundacion,
             double presupuesto, double metaVentasAnual, Localizacion localizacion) {
         this.nombre = nombre;
@@ -121,10 +165,11 @@ public class Hospital {
         this.presupuesto = presupuesto;
         this.metaVentasAnual = metaVentasAnual;
         this.localizacion = localizacion;
-
+        this.inventario = new Inventario();
         this.empleados = new ArrayList<>();
         this.pacientes = new ArrayList<>();
         this.citas = new ArrayList<>();
+        this.medicamentos = new ArrayList<>(); // Inicializa la lista de medicamentos
     }
 
     // MÉTODOS PARA GESTIONAR EMPLEADOS
@@ -166,6 +211,16 @@ public class Hospital {
         return citas;
     }
 
+    // MÉTODOS PARA GESTIONAR MEDICAMENTOS
+    public void registrarMedicamento(Medicamento medicamento) {
+        medicamentos.add(medicamento);
+        System.out.println("Medicamento " + medicamento.getNombre() + " registrado en el hospital.");
+    }
+
+    public List<Medicamento> obtenerMedicamentos() {
+        return medicamentos;
+    }
+
     // MÉTODO PARA DESCONTAR DEL PRESUPUESTO
     public void descontarPresupuesto(double monto) throws PresupuestoNegativoException {
         presupuesto -= monto;
@@ -174,6 +229,22 @@ public class Hospital {
             throw new PresupuestoNegativoException("El hospital ha entrado en quiebra. Presupuesto negativo: " + presupuesto);
         }
     }
+    
+    public void procesoNomina() throws PresupuestoNegativoException {
+    double totalNomina = 0.0;
+
+    // Recorrer todos los empleados del hospital y sumar sus salarios
+    for (Empleado empleado : empleados) {
+        double salario = empleado.calcularSalario();
+        totalNomina += salario;
+        System.out.println("Pagando salario de " + empleado.getNombre() + ": $" + salario);
+    }
+
+    // Restar el total de la nómina del presupuesto
+    descontarPresupuesto(totalNomina);
+
+    System.out.println("Proceso de nómina completado. Total pagado: $" + totalNomina);
+}
 
     // MÉTODO PARA REGISTRAR PATROCINIO
     public void registrarPatrocinio(double monto) {
