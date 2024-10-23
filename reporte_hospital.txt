@@ -1,7 +1,7 @@
 ***** Reporte *****
 Título: Reporte de Actividades del Hospital San José St. Bonaventure
-Fecha de creación: 2024-10-18T18:05:38.516382500
-*************************
+Fecha de creación: 2024-10-22T00:07:27.071103
+************ Contenido *************
 
 Información del hospital: 
 Nombre: Hospital San José St. Bonaventure
@@ -23,5 +23,5 @@ Fecha: 2024-10-19 - Paciente: Ana María - Médico: María Gómez
 
 Inventario de medicamentos: 
 
-*************************
+*************************************
 Fin del reporte.

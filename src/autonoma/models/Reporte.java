@@ -50,9 +50,9 @@ public class Reporte {
             writer.write("***** Reporte *****\n");
             writer.write("Título: " + titulo + "\n");
             writer.write("Fecha de creación: " + fechaCreacion + "\n");
-            writer.write("*************************\n\n");
+            writer.write("************ Contenido *************\n\n");
             writer.write(contenido + "\n");
-            writer.write("*************************\n");
+            writer.write("*************************************\n");
             writer.write("Fin del reporte.\n");
             System.out.println("Reporte guardado exitosamente en: " + nombreArchivo);
         } catch (IOException e) {

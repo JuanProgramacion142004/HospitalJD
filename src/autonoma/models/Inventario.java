@@ -1,5 +1,6 @@
 package autonoma.models;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -12,9 +13,37 @@ import java.util.ArrayList;
 public class Inventario {
 
     // ATRIBUTOS
+    private static int contadorInventario = 0;
+    private int codigo;
+    private LocalDate fecha;
     private ArrayList<Medicamento> medicamentos;
 
     // MÉTODOS DE ACCESO
+
+    public static int getContadorInventario() {
+        return contadorInventario;
+    }
+
+    public static void setContadorInventario(int contadorInventario) {
+        Inventario.contadorInventario = contadorInventario;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }    
+
+    public LocalDate getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
+    }
+        
     public ArrayList<Medicamento> getMedicamentos() {
         return medicamentos; // Método existente
     }
@@ -25,9 +54,13 @@ public class Inventario {
     }
 
     // CONSTRUCTOR
-    public Inventario() {
-        medicamentos = new ArrayList<>(); // Inicializa la lista de medicamentos
+    public Inventario(int codigo, LocalDate fecha) {
+        this.codigo = ++contadorInventario;
+        this.fecha = fecha;
+        this.medicamentos = medicamentos; 
     }
+
+    
 
     // MÉTODO PARA AGREGAR UN MEDICAMENTO
     public void agregarMedicamento(Medicamento medicamento) {
