@@ -22,8 +22,8 @@ public class Hospital {
     private double presupuesto;
     private double metaVentasAnual;
     private Gerente gerente;
-    private Localizacion localizacion;
-    private Inventario inventario; 
+    private Localizacion localizacion; 
+    private List<Inventario> inventarios;
     private List<Empleado> empleados;
     private List<Paciente> pacientes;
     private List<CitaMedica> citas;
@@ -111,12 +111,12 @@ public class Hospital {
         this.localizacion = localizacion;
     }
 
-    public Inventario getInventario() {
-        return inventario;
+    public List<Inventario> getInventarios() {
+        return inventarios;
     }
 
-    public void setInventario(Inventario inventario) {
-        this.inventario = inventario;
+    public void setInventarios(List<Inventario> inventarios) {
+        this.inventarios = inventarios;
     }
 
     public List<Empleado> getEmpleados() {
@@ -165,7 +165,7 @@ public class Hospital {
         this.presupuesto = presupuesto;
         this.metaVentasAnual = metaVentasAnual;
         this.localizacion = localizacion;
-        this.inventario = new Inventario();
+        this.inventarios = new ArrayList<>();
         this.empleados = new ArrayList<>();
         this.pacientes = new ArrayList<>();
         this.citas = new ArrayList<>();
